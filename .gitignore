@@ -1,0 +1,12 @@
+.pio/
+.build/
+.vscode/
+
+.DS_Store
+Thumbs.db
+
+.env
+.venv
+venv
+*.sublime-project
+*.sublime-workspace
