@@ -7,8 +7,7 @@
 
 #include <Arduino.h>
 #include "motor.h"
-#include "encoder.h"
-#include "../include/config.h"
+#include "config.h"
 
 Motor motor(MOTOR_PIN);
 
@@ -24,12 +23,6 @@ void setup() {
 }
 
 void loop() {
-    
-    for (int speed = 1000; speed <= 1200; speed += 10) {
-        motor.setThrottle(speed);
-        Serial.printf("Speed: %d us\n", speed);
-        delay(200);
-    }
-    
-    delay(2000);
+    motor.setThrottle(1000); // Be attentive with the value here,
+                            // likely the values greater than 1250 can cause too fast spin of the motor
 }

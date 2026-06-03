@@ -1,6 +1,9 @@
-#pragma once
+#ifndef MOTOR_H
+#define MOTOR_H
+
+
 #include <ESP32Servo.h>
-#include "../include/config.h"
+#include "config.h"
 
 class Motor {
 private:
@@ -8,7 +11,10 @@ private:
     int pin;
 
 public:
-    Motor(int p); // Конструктор приймає номер піна
+    Motor(int pwmPin);
     void init();
     void setThrottle(int microSeconds);
 };
+
+
+#endif // MOTOR_H
