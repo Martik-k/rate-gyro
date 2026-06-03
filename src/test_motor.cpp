@@ -1,10 +1,16 @@
+// BUILD: 
+//   pio run -e test_motor
+// UPLOAD: 
+//   pio run -e test_motor -t upload
+// UPLOAD + Serial Monitor: 
+//   pio run -e test_motor -t upload -t monitor
+
 #include <Arduino.h>
 #include "motor.h"
 #include "encoder.h"
 #include "../include/config.h"
 
 Motor motor(MOTOR_PIN);
-Encoder encoder;
 
 void setup() {
     Serial.begin(115200);
@@ -15,8 +21,6 @@ void setup() {
     delay(3000);
     Serial.println("Start");
     
-
-
 }
 
 void loop() {
@@ -28,18 +32,4 @@ void loop() {
     }
     
     delay(2000);
-
-    /*
-    float angle = encoder.getAngle();
-    Serial.printf("Angle: %.2f degrees\n", angle);
-    
-    // Приклад логіки: якщо кут > 90 градусів, трохи крутимо мотор
-    if (angle > 90.0) {
-        motor.setThrottle(1100);
-    } else {
-        motor.setThrottle(1000);
-    }
-    
-    delay(100);
-    */
 }
