@@ -6,8 +6,8 @@
 //   pio run -e test_motor -t upload -t monitor
 
 #include <Arduino.h>
-#include "motor.h"
-#include "config.h"
+#include "Motor.h"
+#include "Config.h"
 
 Motor motor(MOTOR_PIN);
 

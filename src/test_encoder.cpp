@@ -6,7 +6,7 @@
 //   pio run -e test_encoder -t upload -t monitor
 
 #include <Arduino.h>
-#include "encoder.h"
+#include "Encoder.h"
 
 Encoder encoder;
 

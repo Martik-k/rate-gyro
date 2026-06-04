@@ -1,4 +1,4 @@
-#include "motor.h"
+#include "Motor.h"
 
 Motor::Motor(int p) : pin(p) {}
 
@@ -9,7 +9,7 @@ void Motor::init() {
 
 void Motor::setThrottle(int microSeconds) {
     if (microSeconds < 1000) microSeconds = 1000;
-    if (microSeconds > 2000) microSeconds = 2000;
+    if (microSeconds > 1500) microSeconds = 1500;
     
     esc.writeMicroseconds(microSeconds);
 }

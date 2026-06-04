@@ -1,4 +1,6 @@
-#include "encoder.h"
+#include "Encoder.h"
+
+Encoder::Encoder() {}
 
 void Encoder::init() {
     Wire.begin(SDA_PIN, SCL_PIN);

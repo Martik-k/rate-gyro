@@ -3,7 +3,7 @@
 
 
 #include <ESP32Servo.h>
-#include "config.h"
+#include "Config.h"
 
 class Motor {
 private:
