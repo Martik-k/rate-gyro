@@ -9,5 +9,5 @@ void Encoder::init() {
 }
 
 float Encoder::getAngle() {
-    return as5600.readAngle() * 0.08789; // AS5600 returns 0-4095, multiply by 0.08789 for degrees
+    return as5600.readAngle() * (TWO_PI / 4096.0);
 }

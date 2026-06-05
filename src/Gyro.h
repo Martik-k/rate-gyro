@@ -13,12 +13,19 @@ public:
     GyroParams getParams() const;
     float getAngularVelocity();
     float getAngle();
+    void tare();
+
 private:
     Encoder& encoder;
     GyroParams config;
-    float angularVelocity;
-    float lastAngle;
+    
     unsigned long lastTime;
+    float angularVelocity;
+
+    bool isInitialized;
+    float lastRawAngle;
+    float continuousAngle;
+    float filteredAngle;
 };
 
 #endif // GYRO_H
