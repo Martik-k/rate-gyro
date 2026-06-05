@@ -1,5 +1,10 @@
-#pragma once
+#ifndef CONFIG_H
+#define CONFIG_H
 
-const int MOTOR_PIN = 14;
-const int SDA_PIN = 47;
-const int SCL_PIN = 48;
+constexpr int MOTOR_PIN = 14;
+constexpr int SDA_PIN = 47;
+constexpr int SCL_PIN = 48;
+
+constexpr int UART_SPEED = 115200;
+
+#endif // CONFIG_H
