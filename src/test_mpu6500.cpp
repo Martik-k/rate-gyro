@@ -15,7 +15,7 @@ MPU6500 gyro(Wire, GyroRange::DEG_PER_SEC_250);
 void setup() {
     Serial.begin(UART_SPEED);
 
-    Wire.begin(SDA_PIN, SCL_PIN); 
+    Wire.begin(IMU_SDA_PIN, IMU_SCL_PIN); 
     
     gyro.begin();
 
