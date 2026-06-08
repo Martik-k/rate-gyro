@@ -12,7 +12,7 @@
 Motor motor(MOTOR_PIN);
 
 void setup() {
-    Serial.begin(115200);
+    Serial.begin(UART_SPEED);
 
     delay(2000);
 

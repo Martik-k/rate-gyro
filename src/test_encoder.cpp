@@ -11,11 +11,11 @@
 Encoder encoder;
 
 void setup() {
-    Serial.begin(115200);
+    Serial.begin(UART_SPEED);
     
     encoder.init();
     
-    Serial.println("--- Енкодер AS5600 Тест ---");
+    Serial.println("--- Encoder AS5600 Test ---");
     delay(1000);
 }
 

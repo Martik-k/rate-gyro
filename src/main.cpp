@@ -23,6 +23,7 @@ Gyro gyro(encoder, params);
 
 TwoWire I2C_IMU = TwoWire(1);
 MPU6500 mpu(I2C_IMU, GyroRange::DEG_PER_SEC_250);
+uint32_t sampleSeq = 0;
 
 void handleRoot() {
     server.send(200, "text/html", htmlPage);
@@ -30,19 +31,27 @@ void handleRoot() {
 
 void handleData() {
     float omega = gyro.getAngularVelocity();
+    float encoderAngle = encoder.getAngle();
     
     float imuData[3];
     mpu.readGyroRadians(imuData);
+    uint32_t seq = sampleSeq++;
 
     String json = "{";
     json += "\"omega\":" + String(omega) + ",";
-    json += "\"imu_z\":" + String(imuData[2]); 
+    json += "\"imu_z\":" + String(imuData[2]) + ",";
+    json += "\"encoder_angle\":" + String(encoderAngle) + ",";
+    json += "\"seq\":" + String(seq);
     json += "}";
+
+    Serial.printf("[%lu] omega=%.3f imu_z=%.3f encoder=%.3f\n", (unsigned long)seq, omega, imuData[2], encoderAngle);
     
     server.send(200, "application/json", json);
 }
 
 void setup() {
+    Serial.begin(UART_SPEED);
+
     encoder.init();
 
     I2C_IMU.begin(IMU_SDA_PIN, IMU_SCL_PIN);

@@ -16,7 +16,7 @@ struct GyroParams {
     }
     
     float getConstantC() const {
-        return (k * pow(a, 2)) / (getMomentOfInertia() * omega);
+        return (-k * pow(a, 2)) / (getMomentOfInertia() * omega);
     }
 };
 
